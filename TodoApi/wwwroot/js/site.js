@@ -11,6 +11,13 @@ function getItems() {
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
 
+    if (!addNameTextbox.value.trim()) {
+        addNameTextbox.classList.add('is-invalid');
+        addNameTextbox.focus();
+        return;
+    }
+    addNameTextbox.classList.remove('is-invalid');
+
     const item = {
         isComplete: false,
         name: addNameTextbox.value.trim()
@@ -133,6 +140,16 @@ function _displayItems(data) {
         isCompleteCheckbox.type = 'checkbox';
         isCompleteCheckbox.disabled = true;
         isCompleteCheckbox.checked = item.isComplete;
+        isCompleteCheckbox.classList.add('form-check-input', 'mx-2', 'checkbox-lg');
+        if (item.isComplete) {
+            isCompleteCheckbox.style.boxShadow = '0 0 8px 2px #28a745';
+            isCompleteCheckbox.style.borderColor = '#28a745';
+        } else {
+            isCompleteCheckbox.style.boxShadow = '0 0 8px 2px #dc3545';
+            isCompleteCheckbox.style.borderColor = '#dc3545';
+        }
+        isCompleteCheckbox.style.width = '1.5em';
+        isCompleteCheckbox.style.height = '1.5em';
 
         const editButton = document.createElement('button');
         editButton.innerText = 'Edit';
