@@ -1,0 +1,28 @@
+﻿@TodoApi_HostAddress = https://localhost:7003
+
+POST {{TodoApi_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "name":"walk dog 2",
+  "isComplete":false
+}
+
+###
+
+GET {{TodoApi_HostAddress}}/todoitems
+
+###
+
+GET {{TodoApi_HostAddress}}/todoitems/1
+
+###
+
+Put {{TodoApi_HostAddress}}/todoitems/1
+Content-Type: application/json
+
+{
+  "name":"Feed fish",
+  "isComplete":false
+}
+###
